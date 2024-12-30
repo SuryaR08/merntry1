@@ -19,15 +19,15 @@ pipeline {
             }
         }
 
-        stage('Lint and Build Frontend') {
-            steps {
-                dir('frontend') {
-                    bat '''
-                        npm start
-                    '''
-                }
-            }
-        }
+        // stage('Lint and Build Frontend') {
+        //     steps {
+        //         dir('frontend') {
+        //             bat '''
+        //                 npm start
+        //             '''
+        //         }
+        //     }
+        // }
 
         stage('Install Backend Dependencies') {
             steps {
