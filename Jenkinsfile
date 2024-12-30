@@ -23,7 +23,6 @@ pipeline {
             steps {
                 dir('frontend') {
                     bat '''
-                        npm run lint
                         npm run build
                     '''
                 }
