@@ -13,15 +13,17 @@ pipeline {
                 dir('frontend') {
                     bat '''
                         npm install
+                        npm audit fix --force
                     '''
                 }
             }
         }
 
-        stage('Build Frontend') {
+        stage('Lint and Build Frontend') {
             steps {
                 dir('frontend') {
                     bat '''
+                        npm run lint
                         npm run build
                     '''
                 }
@@ -33,6 +35,7 @@ pipeline {
                 dir('backend') {
                     bat '''
                         npm install
+                        npm audit fix --force
                     '''
                 }
             }
@@ -49,7 +52,7 @@ pipeline {
         }
 
         stage('SonarQube Analysis') {
-          environment {
+            environment {
                 SONAR_TOKEN = credentials('sonarqube-token')
             }
             steps {
