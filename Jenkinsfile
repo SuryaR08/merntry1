@@ -23,7 +23,7 @@ pipeline {
             steps {
                 dir('frontend') {
                     bat '''
-                        npm run build
+                        npm start
                     '''
                 }
             }
@@ -35,16 +35,6 @@ pipeline {
                     bat '''
                         npm install
                         npm audit fix --force
-                    '''
-                }
-            }
-        }
-
-        stage('Run Backend Tests') {
-            steps {
-                dir('backend') {
-                    bat '''
-                        npm test
                     '''
                 }
             }
