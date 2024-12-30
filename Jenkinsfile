@@ -65,9 +65,6 @@ pipeline {
     }
 
     post {
-        always {
-            archiveArtifacts artifacts: 'frontend/build/**/*,backend/**/*', fingerprint: true
-        }
         success {
             echo 'Pipeline completed successfully!'
         }
